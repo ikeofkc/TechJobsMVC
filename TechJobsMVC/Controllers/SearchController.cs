@@ -25,7 +25,7 @@ namespace TechJobsMVC.Controllers
             ViewBag.searchType = searchType;
             ViewBag.searchTerm = searchTerm;
             List<Job> jobs;
-            if (String.IsNullOrEmpty(searchTerm))
+            if (String.IsNullOrEmpty(searchTerm) || String.IsNullOrEmpty(searchType))
             {
                 jobs = JobData.FindAll();
                 ViewBag.title = "Invalid entry: Showing all jobs";
