@@ -15,12 +15,15 @@ namespace TechJobsMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.searchType = "All";
             ViewBag.columns = ListController.ColumnChoices;
             return View();
         }
 
         public IActionResult Results(string searchType, string searchTerm)
         {
+            ViewBag.searchType = searchType;
+            ViewBag.searchTerm = searchTerm;
             List<Job> jobs;
             if (String.IsNullOrEmpty(searchTerm))
             {

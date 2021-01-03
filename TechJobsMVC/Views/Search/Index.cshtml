@@ -9,7 +9,7 @@
             @foreach (var column in ViewBag.columns)
             {
                 <span>
-                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key == 'all'" />
+                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@( (ViewBag.searchtype == null) ? column.Key=="all" : column.Key==ViewBag.searchtype )"/>
                     <label for="@column.Key">@column.Value</label>
                 </span>
             }
@@ -18,7 +18,7 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" name="searchTerm" id="searchTerm" value="@ViewBag.searchTerm"/>
         </p>
 
         <input type="submit" value="Search" />
